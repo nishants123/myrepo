@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>IndianGPT - Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { margin:0; font-family: 'Segoe UI', Arial, sans-serif; background: linear-gradient(135deg, #f7f7fa 0%, #e3f2fd 100%); color: #222; }
+        header { background: #0a3c7d; color: #fff; padding: 1.5rem 0 1rem 0; text-align: center; position: relative; box-shadow: 0 4px 16px rgba(10,60,125,0.08);}
+        .brand-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 18px;
+            margin-bottom: 0.5rem;
+        }
+        .logo {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ff9800 0%, #0a3c7d 100%);
+            box-shadow: 0 0 18px #ff9800;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 4px solid #fff;
+        }
+        .logo img {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            box-shadow: 0 0 12px #fff3e0;
+        }
+        .app-title {
+            font-size: 2.6rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            background: linear-gradient(90deg,#ff9800 0%,#fff3e0 40%,#0a3c7d 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+            text-shadow: 0 2px 12px #0a3c7d22;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+        nav { display: flex; justify-content: center; gap: 2rem; margin-top: 1.2rem; }
+        nav a { color: #fff; text-decoration: none; font-weight: 500; font-size: 1.1rem; padding: 0.3rem 1rem; border-radius: 6px; transition: background 0.2s, color 0.2s;}
+        nav a:hover, nav a.active { background: #ff9800; color: #fff; }
+        .top-right { position: absolute; top: 24px; right: 32px; display: flex; gap: 1rem; }
+        .login-btn { background: #ff9800; color: #fff; border: none; padding: 0.6rem 1.2rem; border-radius: 8px; font-size: 1rem; cursor: pointer; font-weight: 600; box-shadow: 0 2px 8px #0a3c7d22;}
+        .login-btn:hover { background: #0a3c7d; }
+        .main-hero { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 60vh; background: none; }
+        .hero-title { font-size: 2.5rem; font-weight: 800; color: #0a3c7d; margin-top: 2rem; text-shadow: 0 2px 8px #0a3c7d22;}
+        .hero-desc { font-size: 1.3rem; color: #444; margin: 1.2rem 0 2rem 0; max-width: 600px; text-align: center; }
+        .chat-btn { background: linear-gradient(90deg,#ff9800 0%,#0a3c7d 100%); color: #fff; border: none; padding: 1.2rem 2.5rem; border-radius: 16px; font-size: 1.5rem; font-weight: 700; cursor: pointer; margin-top: 2rem; box-shadow: 0 2px 12px #0a3c7d22; transition: background 0.2s;}
+        .chat-btn:hover { background: linear-gradient(90deg,#0a3c7d 0%,#ff9800 100%);}
+        .section { max-width: 1100px; margin: 3rem auto; padding: 2rem; background: #fff; border-radius: 18px; box-shadow: 0 2px 16px #0a3c7d22;}
+        .section-title { font-size: 2rem; color: #0a3c7d; font-weight: 700; margin-bottom: 1.2rem; }
+        .features-list { display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; }
+        .feature-card { background: #e3f2fd; border-radius: 12px; padding: 1.2rem 1.5rem; width: 220px; box-shadow: 0 2px 8px #0a3c7d11; text-align: center; transition: transform 0.2s;}
+        .feature-card:hover { transform: translateY(-6px) scale(1.04); box-shadow: 0 6px 24px #0a3c7d22;}
+        .feature-card img { width: 40px; margin-bottom: 0.5rem;}
+        .about-content, .contact-content { font-size: 1.15rem; color: #444; }
+        .release-date { font-size: 1.1rem; color: #ff9800; margin-top: 0.5rem; font-weight: 600;}
+        .footer { background: #0a3c7d; color: #fff; text-align: center; padding: 1.2rem 0; margin-top: 2rem; font-size: 1.1rem;}
+        @media (max-width: 900px) {
+            .features-list { flex-direction: column; align-items: center;}
+            .section { padding: 1rem; }
+            .main-hero { min-height: 40vh; }
+            .brand-box { flex-direction: column; gap: 8px; }
+            .app-title { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="brand-box">
+            <a href="index.html" style="display:flex;align-items:center;gap:18px;text-decoration:none;">
+                <span class="logo">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3909/3909444.png" alt="IndianGPT Logo">
+                </span>
+                <span class="app-title">IndianGPT</span>
+            </a>
+        </div>
+        <nav>
+            <a href="#home" class="active">Home</a>
+            <a href="#what">What is it?</a>
+            <a href="#about">About</a>
+            <a href="#features">Features</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <div class="top-right">
+            <button class="login-btn" id="loginBtn">Login</button>
+        </div>
+    </header>
+    <div id="home" class="main-hero">
+        <div class="hero-title">Welcome to IndianGPT</div>
+        <div class="hero-desc">
+            IndianGPT is a basic AI chat assistant. <br>
+            <strong>Currently, it understands only English.</strong><br>
+            Our team is working to add more features and support for different Indian languages soon!
+        </div>
+        <button class="chat-btn" id="chatBtn">Chat with IndianGPT</button>
+        <!-- Modal for login options -->
+        <div id="loginModal" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.25);z-index:1000;align-items:center;justify-content:center;">
+            <div style="background:#fff;padding:2rem 2.5rem;border-radius:16px;box-shadow:0 2px 16px #0a3c7d22;min-width:280px;text-align:center;">
+                <h2 style="margin-bottom:1.5rem;color:#0a3c7d;">Choose an option</h2>
+                <button id="modalLoginBtn" style="background:#ff9800;color:#fff;border:none;padding:0.8rem 2rem;border-radius:8px;font-size:1.1rem;font-weight:600;cursor:pointer;margin-bottom:1rem;">Login Now</button>
+                <br>
+                <button id="modalContinueBtn" style="background:#0a3c7d;color:#fff;border:none;padding:0.8rem 2rem;border-radius:8px;font-size:1.1rem;font-weight:600;cursor:pointer;">Continue Without Login</button>
+                <br>
+                <button id="modalCloseBtn" style="margin-top:1.5rem;background:none;border:none;color:#0a3c7d;font-size:1rem;cursor:pointer;">Cancel</button>
+            </div>
+        </div>
+    </div>
+    <div id="what" class="section">
+        <div class="section-title">What is IndianGPT?</div>
+        <div class="about-content">
+            IndianGPT is an easy-to-use AI chat assistant designed for everyone in India.<br>
+            <strong>Current Version:</strong> 1.0 (Understands only English.)<br>
+            <strong>Upcoming:</strong> Our Pune-based team is working hard to add support for Hindi, Marathi, Tamil, Bengali, and other Indian languages, plus many new features.<br>
+            <br>
+            Whether you're a student, professional, or just curious, IndianGPT is your digital companion for learning, productivity, and fun.
+        </div>
+        <div class="release-date">Release Date: It will be announced soon.</div>
+    </div>
+    <div id="about" class="section">
+        <div class="section-title">About Us</div>
+        <div class="about-content">
+            <strong>IndianGPT</strong> is developed by a passionate team of AI engineers and linguists. Our mission is to make AI accessible, useful, and safe for every Indian. We believe in the power of technology to bridge gaps and empower people in their daily lives.<br>
+            <br>
+            <strong>Location:</strong> Pune, India
+        </div>
+    </div>
+    <div id="features" class="section">
+        <div class="section-title">Features</div>
+        <div class="features-list">
+            <div class="feature-card">
+                <img src="https://cdn-icons-png.flaticon.com/512/1828/1828919.png" alt="Chat">
+                <strong>Conversational AI</strong>
+                <div>Chat in English (more languages coming soon).</div>
+            </div>
+            <div class="feature-card">
+                <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Knowledge">
+                <strong>Knowledge Base</strong>
+                <div>Ask about Indian culture, history, and current affairs.</div>
+            </div>
+            <div class="feature-card">
+                <img src="https://cdn-icons-png.flaticon.com/512/1828/1828961.png" alt="Code">
+                <strong>Code Assistant</strong>
+                <div>Get help with programming, math, and science queries.</div>
+            </div>
+            <div class="feature-card">
+                <img src="https://cdn-icons-png.flaticon.com/512/1828/1828970.png" alt="Documents">
+                <strong>Document Writer</strong>
+                <div>Generate essays, letters, and official documents.</div>
+            </div>
+            <div class="feature-card">
+                <img src="https://cdn-icons-png.flaticon.com/512/1828/1828940.png" alt="Translation">
+                <strong>Translation</strong>
+                <div>Translation features coming soon for Indian languages.</div>
+            </div>
+            <div class="feature-card">
+                <img src="https://cdn-icons-png.flaticon.com/512/1828/1828926.png" alt="Search">
+                <strong>Web Search</strong>
+                <div>Search the web for latest news and information.</div>
+            </div>
+            <div class="feature-card">
+                <img src="https://cdn-icons-png.flaticon.com/512/1828/1828957.png" alt="Upload">
+                <strong>Upload Files</strong>
+                <div>Send images or documents to IndianGPT.</div>
+            </div>
+            <div class="feature-card">
+                <img src="https://cdn-icons-png.flaticon.com/512/869/869869.png" alt="Theme">
+                <strong>Light/Dark Mode</strong>
+                <div>Switch between light and dark display modes.</div>
+            </div>
+            <div class="feature-card">
+                <img src="https://cdn-icons-png.flaticon.com/512/727/727245.png" alt="Mic">
+                <strong>Voice Input</strong>
+                <div>Speak your message using the mic button.</div>
+            </div>
+        </div>
+    </div>
+    <div id="contact" class="section">
+        <div class="section-title">Contact</div>
+        <div class="contact-content">
+            <strong>Email:</strong> support@indiangpt.ai<br>
+            <strong>Location:</strong> Pune, India<br>
+            <strong>Phone:</strong> +91-9303909875
+        </div>
+    </div>
+    <div class="footer">
+        &copy; 2025 IndianGPT. All rights reserved.
+    </div>
+    <script>
+        // Navigation active state
+        document.querySelectorAll('nav a').forEach(link => {
+            link.onclick = function() {
+                document.querySelectorAll('nav a').forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+            };
+        });
+
+        // Show modal with login options
+        document.getElementById('chatBtn').onclick = function() {
+            document.getElementById('loginModal').style.display = 'flex';
+        };
+
+        document.getElementById('modalLoginBtn').onclick = function() {
+            document.getElementById('loginModal').style.display = 'none';
+            alert("Login functionality coming soon!");
+            // window.location.href = "login.html"; // Uncomment if you have a login page
+        };
+
+        document.getElementById('modalContinueBtn').onclick = function() {
+            document.getElementById('loginModal').style.display = 'none';
+            window.location.href = "chat.html";
+        };
+
+        document.getElementById('modalCloseBtn').onclick = function() {
+            document.getElementById('loginModal').style.display = 'none';
+        };
+
+        // Login button (demo: show alert or redirect to login page)
+        document.getElementById('loginBtn').onclick = function() {
+            alert("Login functionality coming soon!");
+            // window.location.href = "login.html"; // Uncomment if you have a login page
+        };
+    </script>
+</body>
+</html>
