@@ -67,6 +67,44 @@
       margin-top: 1.5rem;
     }
 
+    .feedback-form {
+      margin-top: 1.8rem;
+      display: grid;
+      gap: 1rem;
+    }
+
+    .feedback-form input,
+    .feedback-form textarea {
+      width: 100%;
+      min-width: 0;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.08);
+      color: #f5f7fa;
+      padding: 0.95rem 1rem;
+      font-size: 1rem;
+      outline: none;
+      transition: border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .feedback-form input:focus,
+    .feedback-form textarea:focus {
+      border-color: rgba(255, 92, 205, 0.7);
+      background: rgba(255, 255, 255, 0.14);
+    }
+
+    .feedback-form textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .feedback-form button {
+      align-self: flex-start;
+      width: auto;
+      background: #6dff8b;
+      color: #10222e;
+    }
+
     .button,
     .toggle {
       display: inline-flex;
@@ -105,6 +143,11 @@
         <button class="toggle" id="themeButton">Toggle Theme</button>
         <button class="button" id="messageButton">Show Message</button>
       </div>
+      <form class="feedback-form" id="feedbackForm">
+        <input type="text" id="nameInput" placeholder="Your name" required />
+        <textarea id="feedbackInput" placeholder="Write your feedback" required></textarea>
+        <button type="submit" class="button">Send Feedback</button>
+      </form>
       <p class="info" id="statusText">Status: Ready to drag.</p>
     </div>
   </div>
@@ -151,6 +194,22 @@
     messageButton.addEventListener('click', () => {
       alert('Nice! You made the page interactive and moveable.');
       statusText.textContent = 'Status: Message shown.';
+    });
+
+    const feedbackForm = document.getElementById('feedbackForm');
+    const nameInput = document.getElementById('nameInput');
+    const feedbackInput = document.getElementById('feedbackInput');
+
+    feedbackForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const name = nameInput.value.trim();
+      const feedback = feedbackInput.value.trim();
+      if (!name || !feedback) {
+        statusText.textContent = 'Status: Please fill in both fields.';
+        return;
+      }
+      statusText.textContent = `Status: Thanks for your feedback, ${name}!`;
+      feedbackForm.reset();
     });
 
     const styleSheet = document.createElement('style');
