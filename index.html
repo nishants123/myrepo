@@ -8,7 +8,7 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: radial-gradient(circle at top, #4d90fe, #0b1c44 65%);
+      background: radial-gradient(circle at top left, #7928ca, #ff0080 55%, #1f2041 100%);
       color: #f5f7fa;
       min-height: 100vh;
       overflow: hidden;
@@ -29,8 +29,8 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      background: rgba(20, 30, 70, 0.92);
-      border: 1px solid rgba(255, 255, 255, 0.16);
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.24);
       border-radius: 28px;
       box-shadow: 0 22px 70px rgba(0, 0, 0, 0.35);
       backdrop-filter: blur(16px);
@@ -76,8 +76,8 @@
       padding: 0.95rem 1.6rem;
       border-radius: 999px;
       border: none;
-      background: #ff9b44;
-      color: #111827;
+      background: #ff5ccd;
+      color: #ffffff;
       text-decoration: none;
       font-weight: 700;
       transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
@@ -87,7 +87,7 @@
     .button:hover,
     .toggle:hover {
       transform: translateY(-2px);
-      box-shadow: 0 14px 30px rgba(255, 155, 68, 0.36);
+      box-shadow: 0 14px 30px rgba(255, 92, 205, 0.36);
     }
 
     .info {
@@ -156,24 +156,24 @@
     const styleSheet = document.createElement('style');
     styleSheet.textContent = `
       body.altTheme {
-        background: radial-gradient(circle at top, #ffd44d, #4b1a28 65%);
+        background: radial-gradient(circle at top right, #00d084, #12002b 70%);
       }
 
       body.altTheme .container {
-        background: rgba(255, 255, 255, 0.95);
-        color: #1c2541;
+        background: rgba(15, 23, 42, 0.95);
+        color: #f4f7ff;
       }
 
       body.altTheme .button,
       body.altTheme .toggle {
-        background: #5d4de8;
-        color: #f7f7ff;
+        background: #7856ff;
+        color: #ffffff;
       }
 
       body.altTheme .container h1,
       body.altTheme .container p,
       body.altTheme .info {
-        color: #1c2541;
+        color: #f4f7ff;
       }
     `;
     document.head.appendChild(styleSheet);
