@@ -8,20 +8,44 @@
 </head>
 <body>
   <div class="scene">
-    <div class="graphic-shape"></div>
+    <div class="bg-blur blur-1"></div>
+    <div class="bg-blur blur-2"></div>
+    <div class="bg-grid"></div>
+    <div class="floating-sphere"></div>
+
     <div class="container" id="draggableCard">
-      <h1>Drag Me Around</h1>
-      <p>Click and hold this card to move it anywhere inside the page. Use the buttons to toggle the theme or show a message.</p>
+      <div class="hero">
+        <div class="hero-copy">
+          <span class="eyebrow">Design Experience</span>
+          <h1>Professional UI, motion, and feedback in one page.</h1>
+          <p>Move the card, switch themes, and share feedback with a polished interface built for modern presentation.</p>
+        </div>
+        <div class="visual-panel">
+          <div class="device">
+            <div class="screen"></div>
+            <div class="panel-block block-1"></div>
+            <div class="panel-block block-2"></div>
+            <div class="panel-block block-3"></div>
+            <div class="device-ring"></div>
+          </div>
+        </div>
+      </div>
+
       <div class="controls">
         <button class="toggle" id="themeButton">Toggle Theme</button>
         <button class="button" id="messageButton">Show Message</button>
       </div>
+
       <form class="feedback-form" id="feedbackForm">
         <input type="text" id="nameInput" placeholder="Your name" required />
-        <textarea id="feedbackInput" placeholder="Write your feedback" required></textarea>
+        <textarea id="feedbackInput" placeholder="Share your thoughts" required></textarea>
         <button type="submit" class="button">Send Feedback</button>
       </form>
-      <p class="info" id="statusText">Status: Ready to drag.</p>
+
+      <div class="status-row">
+        <p class="info" id="statusText">Status: Ready to drag.</p>
+        <span class="badge">Live demo</span>
+      </div>
     </div>
   </div>
 
@@ -30,6 +54,9 @@
     const statusText = document.getElementById('statusText');
     const themeButton = document.getElementById('themeButton');
     const messageButton = document.getElementById('messageButton');
+    const feedbackForm = document.getElementById('feedbackForm');
+    const nameInput = document.getElementById('nameInput');
+    const feedbackInput = document.getElementById('feedbackInput');
 
     let offsetX = 0;
     let offsetY = 0;
@@ -41,7 +68,8 @@
       const rect = card.getBoundingClientRect();
       offsetX = event.clientX - rect.left;
       offsetY = event.clientY - rect.top;
-      statusText.textContent = 'Status: Dragging...';
+      card.classList.add('dragging');
+      statusText.textContent = 'Status: Dragging the card.';
     });
 
     window.addEventListener('pointermove', (event) => {
@@ -55,23 +83,20 @@
     window.addEventListener('pointerup', () => {
       if (!isDragging) return;
       isDragging = false;
+      card.classList.remove('dragging');
       statusText.textContent = 'Status: Dropped. Drag again anytime.';
     });
 
     themeButton.addEventListener('click', () => {
       document.body.classList.toggle('altTheme');
-      const activeTheme = document.body.classList.contains('altTheme') ? 'Solar' : 'Ocean';
+      const activeTheme = document.body.classList.contains('altTheme') ? 'Aurora' : 'Midnight';
       statusText.textContent = `Status: Switched to ${activeTheme} theme.`;
     });
 
     messageButton.addEventListener('click', () => {
-      alert('Nice! You made the page interactive and moveable.');
+      alert('This layout is built with CSS motion and flexible UI sections.');
       statusText.textContent = 'Status: Message shown.';
     });
-
-    const feedbackForm = document.getElementById('feedbackForm');
-    const nameInput = document.getElementById('nameInput');
-    const feedbackInput = document.getElementById('feedbackInput');
 
     feedbackForm.addEventListener('submit', (event) => {
       event.preventDefault();
@@ -84,31 +109,6 @@
       statusText.textContent = `Status: Thanks for your feedback, ${name}!`;
       feedbackForm.reset();
     });
-
-    const styleSheet = document.createElement('style');
-    styleSheet.textContent = `
-      body.altTheme {
-        background: radial-gradient(circle at top right, #00d084, #12002b 70%);
-      }
-
-      body.altTheme .container {
-        background: rgba(15, 23, 42, 0.95);
-        color: #f4f7ff;
-      }
-
-      body.altTheme .button,
-      body.altTheme .toggle {
-        background: #7856ff;
-        color: #ffffff;
-      }
-
-      body.altTheme .container h1,
-      body.altTheme .container p,
-      body.altTheme .info {
-        color: #f4f7ff;
-      }
-    `;
-    document.head.appendChild(styleSheet);
   </script>
 </body>
 </html>
